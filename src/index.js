@@ -34,6 +34,7 @@
  * @typedef {object} ImageToolData
  * @description Image Tool's input and output data format
  * @property {string} caption — image caption
+ * @property {string} linkUrl — image url destination
  * @property {boolean} withBorder - should image be rendered with border
  * @property {boolean} withBackground - should image be rendered with background
  * @property {boolean} stretched - should image be stretched to full width of container
@@ -46,7 +47,7 @@ import './index.css';
 import Ui from './ui';
 import Uploader from './uploader';
 
-import { IconAddBorder, IconStretch, IconAddBackground, IconPicture } from '@codexteam/icons';
+import { IconAddBorder, IconStretch, IconAddBackground, IconPicture, IconLink } from '@codexteam/icons';
 
 /**
  * @typedef {object} ImageConfig
@@ -57,6 +58,7 @@ import { IconAddBorder, IconStretch, IconAddBackground, IconPicture } from '@cod
  * @property {string} field - field name for uploaded image
  * @property {string} types - available mime-types
  * @property {string} captionPlaceholder - placeholder for Caption field
+ * @property {string} linkUrlPlaceholder - placeholder for LinkUrl field
  * @property {object} additionalRequestData - any data to send with requests
  * @property {object} additionalRequestHeaders - allows to pass custom headers with Request
  * @property {string} buttonContent - overrides for Select File button
@@ -140,7 +142,7 @@ export default class ImageTool {
     this.block = block;
 
     /**
-     * Tool's initial config
+     * Tool's initial config 
      */
     this.config = {
       endpoints: config.endpoints || '',
@@ -149,6 +151,7 @@ export default class ImageTool {
       field: config.field || 'image',
       types: config.types || 'image/*',
       captionPlaceholder: this.api.i18n.t(config.captionPlaceholder || 'Caption'),
+      linkUrlPlaceholder: this.api.i18n.t(config.linkUrlPlaceholder || 'Image Link Url'),
       buttonContent: config.buttonContent || '',
       uploader: config.uploader || undefined,
       actions: config.actions || [],
@@ -217,8 +220,10 @@ export default class ImageTool {
    */
   save() {
     const caption = this.ui.nodes.caption;
+    const linkUrl = this.ui.nodes.linkUrl;
 
     this._data.caption = caption.innerHTML;
+    this._data.linkUrl = linkUrl.innerHTML;
 
     return this.data;
   }
@@ -353,6 +358,9 @@ export default class ImageTool {
 
     this._data.caption = data.caption || '';
     this.ui.fillCaption(this._data.caption);
+
+    this._data.linkUrl = data.linkUrl || '';
+    this.ui.fillLinkUrl(this._data.linkUrl);
 
     ImageTool.tunes.forEach(({ name: tune }) => {
       const value = typeof data[tune] !== 'undefined' ? data[tune] === true || data[tune] === 'true' : false;

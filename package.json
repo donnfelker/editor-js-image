@@ -1,6 +1,6 @@
 {
-  "name": "@editorjs/image",
-  "version": "2.9.0",
+  "name": "donnfelker-editorjs-image",
+  "version": "1.0.0",
   "keywords": [
     "codex editor",
     "image",
@@ -9,7 +9,7 @@
   ],
   "description": "Image Tool for Editor.js",
   "license": "MIT",
-  "repository": "https://github.com/editor-js/image",
+  "repository": "https://github.com/donnfelker/editor-js-image",
   "files": [
     "dist"
   ],
@@ -29,8 +29,7 @@
     "lint:fix": "eslint src/ --ext .js --fix"
   },
   "author": {
-    "name": "CodeX",
-    "email": "team@ifmo.su"
+    "name": "Donn Felker, with original work from CodeX"
   },
   "devDependencies": {
     "@codexteam/ajax": "^4.2.0",
@@ -45,6 +44,7 @@
     "vite-plugin-css-injected-by-js": "^3.3.0"
   },
   "dependencies": {
-    "@codexteam/icons": "^0.0.6"
+    "@codexteam/icons": "^0.0.6",
+    "http-server": "^14.1.1"
   }
 }

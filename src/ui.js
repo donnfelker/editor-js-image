@@ -29,6 +29,9 @@ export default class Ui {
       caption: make('div', [this.CSS.input, this.CSS.caption], {
         contentEditable: !this.readOnly,
       }),
+      linkUrl: make('div', [this.CSS.input, this.CSS.linkUrl], {
+        contentEditable: !this.readOnly,
+      }),
     };
 
     /**
@@ -42,9 +45,11 @@ export default class Ui {
      *  </wrapper>
      */
     this.nodes.caption.dataset.placeholder = this.config.captionPlaceholder;
+    this.nodes.linkUrl.dataset.placeholder = this.config.linkUrlPlaceholder;
     this.nodes.imageContainer.appendChild(this.nodes.imagePreloader);
     this.nodes.wrapper.appendChild(this.nodes.imageContainer);
     this.nodes.wrapper.appendChild(this.nodes.caption);
+    this.nodes.wrapper.appendChild(this.nodes.linkUrl);
     this.nodes.wrapper.appendChild(this.nodes.fileButton);
   }
 
@@ -68,6 +73,7 @@ export default class Ui {
       imagePreloader: 'image-tool__image-preloader',
       imageEl: 'image-tool__image-picture',
       caption: 'image-tool__caption',
+      linkUrl: 'image-tool__link-url',
     };
   };
 
@@ -222,6 +228,18 @@ export default class Ui {
   fillCaption(text) {
     if (this.nodes.caption) {
       this.nodes.caption.innerHTML = text;
+    }
+  }
+
+  /**
+     * Shows linkUrl input
+     *
+     * @param {string} text - linkUrl text
+     * @returns {void}
+     */
+  fillLinkUrl(text) {
+    if (this.nodes.linkUrl) {
+      this.nodes.linkUrl.innerHTML = text;
     }
   }
 
