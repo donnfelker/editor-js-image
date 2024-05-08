@@ -18,6 +18,7 @@ Image Block for the [Editor.js](https://editorjs.io). This is a fork of the orig
 - Pasting files and screenshots from Clipboard
 - Allows adding a border, and a background
 - Allows stretching an image to the container's full-width
+- Image URL Linking
 
 **Notes**
 
