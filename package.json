@@ -1,6 +1,6 @@
 {
   "name": "@donnfelker/editor-js-image",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "codex editor",
     "image",
@@ -44,7 +44,6 @@
     "vite-plugin-css-injected-by-js": "^3.3.0"
   },
   "dependencies": {
-    "@codexteam/icons": "^0.0.6",
-    "http-server": "^14.1.1"
+    "@codexteam/icons": "^0.0.6"
   }
 }
