@@ -2,9 +2,13 @@
 
 # Image Tool
 
-Image Block for the [Editor.js](https://editorjs.io).
+Image Block for the [Editor.js](https://editorjs.io). This is a fork of the original, located [here](https://github.com/editor-js/image). This fork provides the ability to provide a link to the image. This will be out put in JSON output. 
 
-![](https://capella.pics/63a03d04-3816-45b2-87b2-d85e556f0066.jpg)
+## Screenshot
+![Example](docs/screenshot.png)
+
+### Output JSON
+![Output JSON Example](docs/json_example.png)
 
 ## Features
 
